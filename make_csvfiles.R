@@ -5,6 +5,15 @@
 # R options
 g <- gc(); rm(list = ls()); options(warn = -1); options(scipen = 999)
 
+mkdirs <- function(fp) {
+  
+  if(!file.exists(fp)) {
+    mkdirs(dirname(fp))
+    dir.create(fp)
+  }
+  
+} 
+
 # Load packages
 suppressMessages(library(tidyverse))
 suppressMessages(library(modelr))
@@ -66,6 +75,17 @@ yInfo <- lapply(1:length(Prec), function(i){
   
 })
 yInfo <- do.call(rbind, yInfo)
-toSave <- yInfo %>% dplyr::arrange(date_dssat) %>% split(.$ID)
 
-map2(paste0("./data/climate/p", yInfo$ID %>% unique(), ".csv"), yInfo, write_csv)
+
+climate_pixel <- yInfo %>% 
+  slice_rows("ID") %>%
+  nest(.key = climate)
+
+crop_mgmt <- left_join(crop_mgmt, climate_pixel, by = c('Coincidencias' = 'ID'))
+
+mkdirs("./data/climate/")
+
+map2(climate_pixel$climate, paste0("./data/climate/pixel_", climate_pixel$ID, ".csv"),  write_csv)
+
+
+
