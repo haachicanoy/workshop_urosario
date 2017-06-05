@@ -8,16 +8,8 @@ mkdirs <- function(fp) {
   
 } 
 
-## make x-file
-suppressMessages(library(tidyverse))
-crop_mgmt <- read_csv(file = "./data/results/mgmt_colombia.csv", locale =  locale(encoding = "latin1"))
-dir_runs <- 'Runs/'
 
-
-# crop_mgmt[1, ]
-# pixel <- 1
-
-make_xfile <- function(mgmt_df, dir_runs, pixel){
+make_xfile <- function(mgmt_df, dir_run, pixel){
   
   
   require(tidyverse)
@@ -28,7 +20,8 @@ make_xfile <- function(mgmt_df, dir_runs, pixel){
   ## day_N_app day of fertilization
   
   # proof
-  # mgmt_df <- crop_mgmt[1, ]
+  # pixel  <- 1
+  # mgmt_df <- crop_mgmt[pixel, ]
  
   start <- magrittr::extract2(mgmt_df, 'mirca.start') 
   
@@ -94,8 +87,7 @@ make_xfile <- function(mgmt_df, dir_runs, pixel){
     paste0(71, .)
   
   
-  dir_run <- paste0(dir_runs, pixel)
-  mkdirs(dir_run)
+
   
   
   proof <- make_archive(paste0(dir_run, '/proof.MZX'), overwrite = F,  encoding = "UTF-8") 
