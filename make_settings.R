@@ -40,7 +40,7 @@ make_treatments <- function(IC, MI, MF, MH){
 make_cultivars <- function(CR, INGENO, CNAME){
   
   
-  cultivars <- data.frame(C = 1 , CR, INGENO, CNAME)
+  cultivars <- data.frame(C = 1, CR, INGENO, CNAME)
   
   return(cultivars)
   
@@ -241,7 +241,7 @@ make_pDetails <- function(input_pDetails){
 
 make_sControls <- function(input_sControls, PDATE){
   
-  #
+  ## 
   
   NYERS <- input_sControls$NYERS 
   SMODEL <-input_sControls$SMODEL

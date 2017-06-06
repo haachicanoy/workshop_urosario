@@ -22,6 +22,8 @@ make_xfile <- function(mgmt_df, dir_run, pixel){
   # proof
   # pixel  <- 1
   # mgmt_df <- crop_mgmt[pixel, ]
+  
+  mgmt_df <- mgmt_df [pixel, ]
  
   start <- magrittr::extract2(mgmt_df, 'mirca.start') 
   
@@ -51,7 +53,7 @@ make_xfile <- function(mgmt_df, dir_run, pixel){
 
   
   CR <- 'MZ'    # Crop Code, you need to search this parameter for de manual DSSAT (its different by crop)
-  INGENO <- cultivar # Cultivar indentifier, this is the code for cultivar to run depend of crop
+  INGENO <- 'CI0035' # Cultivar indentifier, this is the code for cultivar to run depend of crop
   CNAME <- 'FM6'  # Whatever code to identify the cultivar to run, maybe no too long string
   WSTA <- 'USAID001'
   ID_SOIL <- 'CORD870001'

@@ -45,7 +45,7 @@ dir_parameters <- './data/parameters'
 
 
 
-run_dssat(crop_mgmt, dir_runs, dir_parameters, 2)
+run_dssat(crop_mgmt_climate, dir_runs, dir_parameters, 2)
 
 
 
