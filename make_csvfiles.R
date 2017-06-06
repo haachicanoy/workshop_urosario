@@ -24,6 +24,7 @@ suppressMessages(library(tidyr))
 suppressMessages(library(ggplot2))
 suppressMessages(library(lubridate))
 suppressMessages(library(RCurl))
+suppressMessages(library(purrrlyr))
 
 # Load management matrix for maize crop in Colombia
 crop_mgmt <- read_csv(file = "./data/results/mgmt_colombia.csv")
@@ -86,6 +87,3 @@ crop_mgmt <- left_join(crop_mgmt, climate_pixel, by = c('Coincidencias' = 'ID'))
 mkdirs("./data/climate/")
 
 map2(climate_pixel$climate, paste0("./data/climate/pixel_", climate_pixel$ID, ".csv"),  write_csv)
-
-
-
