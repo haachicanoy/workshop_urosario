@@ -75,7 +75,7 @@ make_xfile <- function(mgmt_df, dir_run, pixel){
   
   ## Simulation Controls
   input_sControls <- list()
-  input_sControls$NYERS <- 1 ## Years for simulation
+  input_sControls$NYERS <- 29 ## Years for simulation
   input_sControls$SMODEL <- 'MZCER046' # model to use
   input_sControls$WATER <- 'N'   ## Y = Utiliza balance Hidrico, N = No utiliza balance hidrico
   input_sControls$NITRO <-  'N'  ## Y = utiliza balance nitrogeno, N =  no utiliza balance nitrogeno

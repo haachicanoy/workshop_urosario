@@ -3,9 +3,10 @@ source('make_xfile.R')
 source('make_settings.R')
 source('functions_xfile.R')
 source('make_wth.R')
+source('executing_dssat.R')
 
 ## make dssat run
-library(stringr)
+
 
 extract_number <- function(x){
   
@@ -21,6 +22,12 @@ extract_number <- function(x){
 
 ## make x-file
 suppressMessages(library(tidyverse))
+suppressMessages(library(stringr))
+suppressMessages(library(magrittr))
+suppressMessages(library(purrr))
+
+
+
 crop_mgmt <- read_csv(file = "./data/results/mgmt_colombia.csv", locale =  locale(encoding = "latin1"))
 dir_runs <- 'Runs/'
 
@@ -34,27 +41,12 @@ climate_files <- paste0('data/climate/') %>%
 
 
 crop_mgmt_climate <- left_join(crop_mgmt, climate_files, by = c('Coincidencias' = 'pixel')) 
-
-
-run_dssat <- function(crop_mgmt, dir_runs, pixel){
-  
-  
-  # crop_mgmt <- crop_mgmt_climate
-  # pixel <- 1
-  
-  dir_run <- paste0(dir_runs, pixel)
-  mkdirs(dir_run)
-  make_xfile(crop_mgmt, dir_run, pixel)
-  make_wth(crop_mgmt, dir_run, pixel)
-  
-}
+dir_parameters <- './data/parameters'
 
 
 
+run_dssat(crop_mgmt, dir_runs, dir_parameters, 2)
 
 
-
-# crop_mgmt[1, ]
-# pixel <- 1
 
 
