@@ -51,7 +51,7 @@ read_summary <- function(dir_run){
   return(summary_out)
 }
 
-
+# 
 
 run_dssat <- function(crop_mgmt, dir_runs, dir_parameters, pixel){
   

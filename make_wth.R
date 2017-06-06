@@ -4,7 +4,7 @@ make_wth <- function(crop_mgmt, out_dir, pixel){
   ## proof
   data <- magrittr::extract2(crop_mgmt, 'data') %>%
     magrittr::extract2(pixel)
- 
+ # 
   require(stringr)
   lat <- -99
   long <- -99

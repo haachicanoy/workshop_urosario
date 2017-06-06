@@ -241,7 +241,7 @@ make_pDetails <- function(input_pDetails){
 
 make_sControls <- function(input_sControls, PDATE){
   
-  ## 
+  #
   
   NYERS <- input_sControls$NYERS 
   SMODEL <-input_sControls$SMODEL
