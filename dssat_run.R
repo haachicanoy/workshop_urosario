@@ -49,7 +49,7 @@ climate_files <- paste0('data/climate/') %>%
 crop_mgmt_climate <- left_join(crop_mgmt, climate_files, by = c('Coincidencias' = 'pixel')) 
 
 # Just run one pixel
-run_dssat(crop_mgmt_climate, dir_runs, dir_parameters, 2)
+tst <- run_dssat(crop_mgmt = crop_mgmt_climate, dir_runs = dir_runs, dir_parameters = dir_parameters, pixel = 4)
 
 # Parallelize the stuff
 cores <- detectCores()
